@@ -1,0 +1,14 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
+    "AuthorDetails": {
+      "Name": "Janik Sunke",
+      "ImageUrl": "https://github.com/JanikSunke.png"
+    },
+    "Category": "",
+    "Description": "",
+    "LicenseTypes": [ "Free" ],
+    "IssueTrackerUrl": "https://github.com/JanikSunke/UmbracoMemberImpersonation/issues",
+    "PackageType": "Package",
+    "Tags": [],
+    "Title": "Umbraco Member Impersonation "
+  }
