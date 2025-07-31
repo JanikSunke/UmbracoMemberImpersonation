@@ -1,0 +1,25 @@
+﻿@*
+this view doesn't set a model, because the masterpage is master for all kinds of models.
+So instead we just ase the default IPublishedContent, and add variables for the different
+kinds of models we need, like ISettings etc.
+
+Also, consider making a custom ViewPage for "master controller logic", like getting a nav etc.
+*@
+@inherits UmbracoViewPage
+@{
+    Layout = null;
+
+    var site = Model.AncestorOrSelf("home");
+}
+<!doctype html>
+<html lang="@site.GetCultureFromDomains()">
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        @Html.AntiForgeryToken()
+        <content>
+            @RenderBody()
+        </content>
+    </body>
+</html>

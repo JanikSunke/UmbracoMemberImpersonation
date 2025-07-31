@@ -1,0 +1,16 @@
+﻿@using Umbraco.Cms.Core.Security
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject IMemberManager MemberManager
+@{
+	Layout = "master.cshtml";
+    var member = await MemberManager.GetCurrentMemberAsync();
+}
+
+@if (member == null)
+{
+    <p>Not Authenticated</p>
+}
+else
+{
+    <p>Authenticated with @member.Name</p>
+}

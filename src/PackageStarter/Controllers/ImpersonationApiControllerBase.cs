@@ -7,10 +7,10 @@ using Umbraco.Cms.Web.Common.Routing;
 namespace PackageStarter.Controllers
 {
     [ApiController]
-    [BackOfficeRoute("packagestarter/api/v{version:apiVersion}")]
-    [Authorize(Policy = AuthorizationPolicies.SectionAccessContent)]
+    [BackOfficeRoute("/backoffice/impersonation/v{version:apiVersion}")]
+    [Authorize(Policy = AuthorizationPolicies.SectionAccessMembers)]
     [MapToApi(Constants.ApiName)]
-    public class PackageStarterApiControllerBase : ControllerBase
+    public class ImpersonationApiControllerBase : ControllerBase
     {
     }
 }

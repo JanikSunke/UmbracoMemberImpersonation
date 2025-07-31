@@ -3,8 +3,8 @@ import { UmbModalBaseElement as _ } from "@umbraco-cms/backoffice/modal";
 var C = Object.defineProperty, f = Object.getOwnPropertyDescriptor, c = (t) => {
   throw TypeError(t);
 }, d = (t, e, o, n) => {
-  for (var a = n > 1 ? void 0 : n ? f(e, o) : e, i = t.length - 1, l; i >= 0; i--)
-    (l = t[i]) && (a = (n ? l(e, o, a) : l(a)) || a);
+  for (var a = n > 1 ? void 0 : n ? f(e, o) : e, l = t.length - 1, i; l >= 0; l--)
+    (i = t[l]) && (a = (n ? i(e, o, a) : i(a)) || a);
   return n && a && C(e, o, a), a;
 }, x = (t, e, o) => e.has(t) || c("Cannot " + o), y = (t, e, o) => e.has(t) ? c("Cannot add the same private member more than once") : e instanceof WeakSet ? e.add(t) : e.set(t, o), u = (t, e, o) => (x(t, e, "access private method"), o), r, m, h;
 let s = class extends _ {
@@ -26,7 +26,7 @@ let s = class extends _ {
                             id="submit"
                             color='positive'
                             look="primary"
-                            label="Submit"
+                            label="Impersonate"
                             @click=${u(this, r, m)}></uui-button>
                 </uui-box>
                 <div slot="actions">
@@ -56,4 +56,4 @@ export {
   s as MemberCustomModalElement,
   $ as default
 };
-//# sourceMappingURL=modal-element-CVqLp9Lw.js.map
+//# sourceMappingURL=modal-element-CpF34dsT.js.map
