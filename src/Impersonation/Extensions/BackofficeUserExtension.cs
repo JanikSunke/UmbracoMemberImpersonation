@@ -2,7 +2,7 @@ using System.Security.Claims;
 using Umbraco.Cms.Core.Models.Membership;
 using Umbraco.Extensions;
 
-namespace PackageStarter.Extensions;
+namespace Impersonation.Extensions;
 
 public static class BackofficeUserExtension
 {

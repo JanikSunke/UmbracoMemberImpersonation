@@ -1,10 +1,10 @@
+using Impersonation.Extensions;
+using Impersonation.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;
-using PackageStarter.Extensions;
-using PackageStarter.Interfaces.Services;
 using Umbraco.Cms.Core.Security;
 using Umbraco.Cms.Web.Common.Security;
 
-namespace PackageStarter.Services;
+namespace Impersonation.Services;
 
 public class ImpersonationMemberSignInManager : IImpersonationMemberSignInManager
 {

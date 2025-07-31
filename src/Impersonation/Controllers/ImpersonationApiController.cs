@@ -1,9 +1,9 @@
 using Asp.Versioning;
+using Impersonation.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PackageStarter.Interfaces.Services;
 
-namespace PackageStarter.Controllers;
+namespace Impersonation.Controllers;
 
 [ApiVersion("1.0")]
 [ApiExplorerSettings(GroupName = "Impersonation")]

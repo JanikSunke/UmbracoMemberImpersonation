@@ -1,10 +1,10 @@
+using Impersonation.Interfaces.Services;
+using Impersonation.Services;
 using Microsoft.Extensions.DependencyInjection;
-using PackageStarter.Interfaces.Services;
-using PackageStarter.Services;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 
-namespace PackageStarter.Composers;
+namespace Impersonation.Composers;
 
 public class ServicesComposer : IComposer
 {

@@ -1,4 +1,4 @@
-namespace PackageStarter
+namespace Impersonation
 {
     public class Constants
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace PackageStarter.Interfaces.Services;
+namespace Impersonation.Interfaces.Services;
 
 public interface IImpersonationMemberSignInManager
 {

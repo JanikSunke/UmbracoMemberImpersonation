@@ -10,7 +10,7 @@ using Umbraco.Cms.Api.Management.OpenApi;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 
-namespace PackageStarter.Composers;
+namespace Impersonation.Composers;
 
 public class ImpersonationApiComposer : IComposer
 {
