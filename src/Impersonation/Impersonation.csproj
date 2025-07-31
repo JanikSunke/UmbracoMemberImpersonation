@@ -4,6 +4,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+    <RootNamespace>PackageStarter</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>

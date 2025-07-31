@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoMemberImpersonation.TestSite", "UmbracoMemberImpersonation.TestSite\UmbracoMemberImpersonation.TestSite.csproj", "{64E995DE-1CFA-4C6D-85E6-2ADB10A3CCD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageStarter", "PackageStarter\PackageStarter.csproj", "{381A2380-725A-41B7-B7E6-97FDD24EA983}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impersonation", "Impersonation\Impersonation.csproj", "{381A2380-725A-41B7-B7E6-97FDD24EA983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

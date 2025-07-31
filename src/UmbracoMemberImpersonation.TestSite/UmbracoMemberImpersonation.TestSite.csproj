@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PackageStarter\PackageStarter.csproj" />
+    <ProjectReference Include="..\Impersonation\Impersonation.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
