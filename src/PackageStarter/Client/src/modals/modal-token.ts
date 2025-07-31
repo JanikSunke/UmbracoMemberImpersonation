@@ -1,16 +1,16 @@
 import { UmbModalToken } from "@umbraco-cms/backoffice/modal";
 
-export interface MemberCustomModalData {
+export interface MemberImpersonationModalData {
   headline: string;
   content: string;
 }
 
-export interface MemberCustomModalValue {
+export interface MemberImpersonationModalValue {
   content: string
 }
 
-export const MEMBER_CUSTOM_MODAL = new UmbModalToken<MemberCustomModalData, MemberCustomModalValue>(
-  "member.custom.modal",
+export const MEMBER_IMPERSONATION_MODAL = new UmbModalToken<MemberImpersonationModalData, MemberImpersonationModalValue>(
+  "member.impersonation.modal",
   {
     modal: {
       type: 'sidebar',

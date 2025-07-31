@@ -1,10 +1,10 @@
 import { customElement, html, state } from "@umbraco-cms/backoffice/external/lit";
 import { UmbModalBaseElement } from "@umbraco-cms/backoffice/modal";
-import { MemberCustomModalData, MemberCustomModalValue } from "./modal-token";
+import { MemberImpersonationModalData, MemberImpersonationModalValue } from "./modal-token";
 
 @customElement('member-custom-modal')
 export class MemberCustomModalElement extends
-  UmbModalBaseElement<MemberCustomModalData, MemberCustomModalValue>
+  UmbModalBaseElement<MemberImpersonationModalData, MemberImpersonationModalValue>
 {
   constructor() {
     super();
