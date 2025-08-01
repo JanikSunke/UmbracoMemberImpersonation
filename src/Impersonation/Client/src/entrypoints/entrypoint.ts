@@ -3,7 +3,7 @@ import {UMB_AUTH_CONTEXT} from "@umbraco-cms/backoffice/auth";
 import {client} from "../api/client.gen.js";
 
 export const onInit: UmbEntryPointOnInit = (_host, _extensionRegistry) => {
-
+  console.log("Impersonation Client onInit");
   // Backoffice Authentication
   _host.consumeContext(UMB_AUTH_CONTEXT, async (authContext) => {
     const config = authContext?.getOpenApiConfiguration();
@@ -14,7 +14,6 @@ export const onInit: UmbEntryPointOnInit = (_host, _extensionRegistry) => {
       credentials: config?.credentials ?? "same-origin",
     });
   });
-
 };
 
 export const onUnload: UmbEntryPointOnUnload = (_host, _extensionRegistry) => {

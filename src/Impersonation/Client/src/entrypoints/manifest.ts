@@ -1,7 +1,7 @@
 export const manifests: Array<UmbExtensionManifest> = [
   {
-    name: "Package Starter Entrypoint",
-    alias: "PackageStarter.Entrypoint",
+    name: "Impersonation Entrypoint",
+    alias: "Impersonation.Entrypoint",
     type: "backofficeEntryPoint",
     js: () => import("./entrypoint.js"),
   },
