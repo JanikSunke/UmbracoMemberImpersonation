@@ -1,0 +1,14 @@
+{
+  "id": "Impersonation",
+  "name": "Impersonation",
+  "version": "0.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Impersonation Bundle",
+      "alias": "Impersonation.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/Impersonation/impersonation.js"
+    }
+  ]
+}
