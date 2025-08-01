@@ -27,8 +27,6 @@ export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailReposi
     });
 
     await modal?.onSubmit().then(async () => {
-
-
       return client.get({
         url: '/umbraco/backoffice/impersonation/v1/impersonate/' + this.args.unique?.toString(),
         headers: {

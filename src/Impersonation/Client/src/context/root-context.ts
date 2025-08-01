@@ -2,38 +2,38 @@ import {UmbContextBase} from '@umbraco-cms/backoffice/class-api';
 import {UmbContextToken} from "@umbraco-cms/backoffice/context-api";
 import {UmbControllerHost} from "@umbraco-cms/backoffice/controller-api";
 import {client} from "../api/client.gen.ts";
+import {
+  DocumentTreeItemResponseModel,
+  PagedDocumentTreeItemResponseModel
+} from "@umbraco-cms/backoffice/external/backend-api";
+import {UmbBasicState} from "@umbraco-cms/backoffice/observable-api";
 
 export class RootContext extends UmbContextBase<RootContext> {
-  readonly name = 'Janik';
+  #rootItems = new UmbBasicState({} as DocumentTreeItemResponseModel[]);
+  readonly rootItems = this.#rootItems.asObservable();
+  #token: () => Promise<string>;
 
   constructor(host: UmbControllerHost) {
     super(host, ROOT_CONTEXT);
+    var config = client.getConfig();
+    this.#token = config.auth as () => Promise<string>
+    this.fetch();
   }
 
   async fetch() {
-    console.log("Fetching root node");
-    const headers: Headers = new Headers()
-    headers.set('Content-Type', 'application/json')
-    headers.set('Accept', 'application/json')
-    headers.set('Authorization', 'Bearer ' + 'zGDEnJKpRUbGVo_NHHNGhZVIG4zBDfckh6dFanqHBEk');
-    const request = client.get({url: '/umbraco/management/api/v1/tree/document/root', headers: headers});
+    const {data, error}: { data?: PagedDocumentTreeItemResponseModel, error?: any } = await client.get({
+      url: '/umbraco/management/api/v1/tree/document/root', headers: {
+        Authorization: 'Bearer ' + await this.#token()
+      }
+    });
 
-    return request
-      .then(res => {
-        console.log(res);
-      }).catch(() => {
-        return;
-      });
-
-    // const {data, error} = await tryExecute(client.get({
-    //   url: '/umbraco/management/api/v1/tree/document/root',
-    // }));
-    //
-    // if (error) {
-    //   console.error('There was a problem with the fetch operation:', error);
-    // } else {
-    //   console.log(data); // Do something with the data
-    // }
+    if (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    } else {
+      if (data?.total && data.total > 0) {
+        this.#rootItems.setValue(data.items);
+      }
+    }
   }
 }
 
