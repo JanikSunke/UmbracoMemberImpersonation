@@ -1,6 +1,6 @@
 import { html as f, state as p, customElement as C } from "@umbraco-cms/backoffice/external/lit";
 import { UmbModalBaseElement as x } from "@umbraco-cms/backoffice/modal";
-import { R as y } from "./bundle.manifests-BRT5nLAM.js";
+import { R as y } from "./bundle.manifests-ibVyGFMt.js";
 var M = Object.defineProperty, E = Object.getOwnPropertyDescriptor, v = (t) => {
   throw TypeError(t);
 }, c = (t, e, o, s) => {
@@ -33,7 +33,8 @@ let i = class extends x {
         <uui-box>
           <uui-select
             label="Select destination"
-            .options=${t}>
+            .options=${t}
+          >
           </uui-select>
         </uui-box>
         <uui-box>
@@ -75,4 +76,4 @@ export {
   i as MemberCustomModalElement,
   P as default
 };
-//# sourceMappingURL=modal-element-BJkGlHbr.js.map
+//# sourceMappingURL=modal-element-BTfD9iY2.js.map

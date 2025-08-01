@@ -41,7 +41,8 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
         <uui-box>
           <uui-select
             label="Select destination"
-            .options=${selectOptions}>
+            .options=${selectOptions}
+          >
           </uui-select>
         </uui-box>
         <uui-box>

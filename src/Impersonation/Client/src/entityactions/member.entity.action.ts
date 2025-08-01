@@ -27,19 +27,19 @@ export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailReposi
     });
 
     await modal?.onSubmit().then(async () => {
-      return client.get({
-        url: '/umbraco/backoffice/impersonation/v1/impersonate/' + this.args.unique?.toString(),
-        headers: {
-          Authorization: 'Bearer ' + await this.#token()
-        },
-      })
-        .then(({response}) => {
-          if (response.ok) {
-            window.location.href = '/';
-          }
-        })
-    }).catch(() => {
-      return;
+    //   return client.get({
+    //     url: '/umbraco/backoffice/impersonation/v1/impersonate/' + this.args.unique?.toString(),
+    //     headers: {
+    //       Authorization: 'Bearer ' + await this.#token()
+    //     },
+    //   })
+    //     .then(({response}) => {
+    //       if (response.ok) {
+    //         window.location.href = '/';
+    //       }
+    //     })
+    // }).catch(() => {
+    //   return;
     });
   }
 }
