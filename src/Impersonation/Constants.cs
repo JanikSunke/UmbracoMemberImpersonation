@@ -1,7 +1,6 @@
-namespace Impersonation
+namespace Impersonation;
+
+public static class Constants
 {
-    public class Constants
-    {
-        public const string ApiName = "impersonation";
-    }
+    public const string ApiName = "impersonation";
 }
