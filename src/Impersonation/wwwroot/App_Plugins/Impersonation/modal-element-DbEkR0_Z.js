@@ -1,6 +1,6 @@
 import { html as C, state as f, customElement as b } from "@umbraco-cms/backoffice/external/lit";
 import { UmbModalBaseElement as x } from "@umbraco-cms/backoffice/modal";
-import { R as M } from "./bundle.manifests-BdGxC8fX.js";
+import { R as M } from "./bundle.manifests-CwSL4Bt2.js";
 var y = Object.defineProperty, E = Object.getOwnPropertyDescriptor, h = (t) => {
   throw TypeError(t);
 }, p = (t, e, a, n) => {
@@ -61,4 +61,4 @@ export {
   s as MemberCustomModalElement,
   T as default
 };
-//# sourceMappingURL=modal-element-CJ7AlfC7.js.map
+//# sourceMappingURL=modal-element-DbEkR0_Z.js.map

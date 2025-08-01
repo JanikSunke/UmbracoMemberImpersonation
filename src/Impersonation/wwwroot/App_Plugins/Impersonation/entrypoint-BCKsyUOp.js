@@ -1,5 +1,5 @@
 import { UMB_AUTH_CONTEXT as i } from "@umbraco-cms/backoffice/auth";
-import { c as r } from "./bundle.manifests-BdGxC8fX.js";
+import { c as r } from "./bundle.manifests-CwSL4Bt2.js";
 const a = (o, s) => {
   console.log("Impersonation Client onInit"), o.consumeContext(i, async (n) => {
     const e = n == null ? void 0 : n.getOpenApiConfiguration();
@@ -15,4 +15,4 @@ export {
   a as onInit,
   m as onUnload
 };
-//# sourceMappingURL=entrypoint-_1PbN7RZ.js.map
+//# sourceMappingURL=entrypoint-BCKsyUOp.js.map

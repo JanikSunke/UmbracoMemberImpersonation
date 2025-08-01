@@ -6,6 +6,7 @@ import {MEMBER_IMPERSONATION_MODAL} from "../modals/modal-token.ts";
 import {client} from "../api/client.gen.ts";
 
 export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailRepository> {
+  #token: () => Promise<string>;
   #modalManagerContext?: UmbModalManagerContext;
 
   constructor(host: UmbControllerHostElement, args: UmbEntityActionArgs<UmbMemberDetailRepository>) {
@@ -13,6 +14,8 @@ export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailReposi
     this.consumeContext(UMB_MODAL_MANAGER_CONTEXT, (instance) => {
       this.#modalManagerContext = instance;
     });
+    var config = client.getConfig();
+    this.#token = config.auth as () => Promise<string>
   }
 
   async execute() {
@@ -24,13 +27,12 @@ export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailReposi
     });
 
     await modal?.onSubmit().then(async () => {
-      var config = client.getConfig();
-      var token = config.auth as () => Promise<string>
+
 
       return client.get({
         url: '/umbraco/backoffice/impersonation/v1/impersonate/' + this.args.unique?.toString(),
         headers: {
-          Authorization: 'Bearer ' + await token()
+          Authorization: 'Bearer ' + await this.#token()
         },
       })
         .then(({response}) => {
