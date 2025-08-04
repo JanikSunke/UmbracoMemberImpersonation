@@ -17,6 +17,7 @@ Umbraco Member Impersonation allows backoffice users to impersonate members dire
 - Impersonate any member from the Members section
 - Modal confirmation and destination selection
 - Context-aware actions (only available for authorized users)
+- Only available for backoffice users with access to sensitive data
 - Built with Umbraco's management APIs
 
 ## Installation
