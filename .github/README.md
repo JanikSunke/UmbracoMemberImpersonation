@@ -10,7 +10,7 @@ Umbraco Member Impersonation allows backoffice users to impersonate members dire
 - Easily return to your admin session
 
 <p align="center">
-  <img src="docs/assets/member-impersonation-demo.gif" alt="Video">
+  <img src="/docs/assets/member-impersonation-demo.gif" alt="Video">
 </p>
 
 ## Features
