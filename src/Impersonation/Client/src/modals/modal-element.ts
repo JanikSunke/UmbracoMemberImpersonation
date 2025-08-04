@@ -3,13 +3,15 @@ import {UmbModalBaseElement} from "@umbraco-cms/backoffice/modal";
 import {MemberImpersonationModalData, MemberImpersonationModalValue} from "./modal-token";
 import {ROOT_CONTEXT} from "../context/root-context.ts";
 import {DocumentTreeItemResponseModel} from "@umbraco-cms/backoffice/external/backend-api";
+import {UmbChangeEvent} from "@umbraco-cms/backoffice/event";
 
 @customElement('member-custom-modal')
 export class MemberCustomModalElement extends UmbModalBaseElement<MemberImpersonationModalData, MemberImpersonationModalValue> {
   @state()
   content: string = '';
-  #rootContext?: typeof ROOT_CONTEXT.TYPE;
   @state()
+  selected: string = '';
+  #rootContext?: typeof ROOT_CONTEXT.TYPE;
   private rootItems: DocumentTreeItemResponseModel[] = [];
 
   constructor() {
@@ -18,6 +20,7 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
       this.#rootContext = context;
       this.observe(this.#rootContext.rootItems, (items) => {
         this.rootItems = items;
+        this.selected = items[0]?.id ?? '';
       })
     })
   }
@@ -40,6 +43,8 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
         </uui-box>
         <uui-box>
           <uui-select
+            @change=${this.#selectChange}
+            id="select"
             label="Select destination"
             .options=${selectOptions}
           >
@@ -60,7 +65,12 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
     `;
   }
 
+  #selectChange(event: UmbChangeEvent & { target: HTMLSelectElement }) {
+    this.selected = event.target?.value;
+  }
+
   #handleConfirm() {
+    this.modalContext?.setValue({content: this.content, page: this.selected});
     this.modalContext?.submit();
   }
 

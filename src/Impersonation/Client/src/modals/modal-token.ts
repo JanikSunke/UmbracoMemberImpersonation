@@ -6,7 +6,8 @@ export interface MemberImpersonationModalData {
 }
 
 export interface MemberImpersonationModalValue {
-  content: string
+  content: string,
+  page?: string
 }
 
 export const MEMBER_IMPERSONATION_MODAL = new UmbModalToken<MemberImpersonationModalData, MemberImpersonationModalValue>(
