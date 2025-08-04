@@ -24,9 +24,11 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
     super();
     this.consumeContext(ROOT_CONTEXT, (context) => {
       this.#rootContext = context;
-      this.observe(this.#rootContext.rootItems, (items) => {
-        this.rootItems = MapRootDomainsToOptions(items);
-        this.selected = items[0]?.id ?? '';
+      this.observe(this.#rootContext?.rootItems, (items) => {
+        if (items) {
+          this.rootItems = MapRootDomainsToOptions(items);
+          this.selected = items[0]?.id ?? '';
+        }
       })
     })
   }

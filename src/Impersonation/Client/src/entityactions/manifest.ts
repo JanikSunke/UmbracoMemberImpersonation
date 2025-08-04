@@ -2,9 +2,9 @@
 import {UMB_MEMBER_ENTITY_TYPE} from "@umbraco-cms/backoffice/member";
 //import our entity action definition
 import {ImpersonateMember} from "./member.entity.action";
-import {MemberSectionCondition} from "../Constants/member-section-condition.ts";
+import {AccessToSensitiveDataCondition, MemberSectionCondition} from "../constants/member-section-condition.ts";
 
-const entityAction = {
+const entityAction: UmbExtensionManifest = {
   type: 'entityAction',
   kind: 'default',
   alias: 'member.entity.action',
@@ -19,7 +19,8 @@ const entityAction = {
     label: 'Impersonate...',
   },
   conditions: [
-    MemberSectionCondition
+    MemberSectionCondition,
+    AccessToSensitiveDataCondition
   ]
 }
 

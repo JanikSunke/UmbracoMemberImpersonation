@@ -1,7 +1,7 @@
 import { html as b, state as p, customElement as M } from "@umbraco-cms/backoffice/external/lit";
-import { UmbModalBaseElement as x } from "@umbraco-cms/backoffice/modal";
-import { R as y } from "./bundle.manifests-ZkeGuKXE.js";
-function O(e) {
+import { UmbModalBaseElement as g } from "@umbraco-cms/backoffice/modal";
+import { R as x } from "./bundle.manifests-idYC-qQB.js";
+function y(e) {
   var o, s;
   const t = [];
   for (const a of e) {
@@ -14,19 +14,20 @@ function O(e) {
   }
   return t;
 }
-var E = Object.defineProperty, g = Object.getOwnPropertyDescriptor, f = (e) => {
+var O = Object.defineProperty, E = Object.getOwnPropertyDescriptor, f = (e) => {
   throw TypeError(e);
 }, m = (e, t, o, s) => {
-  for (var a = s > 1 ? void 0 : s ? g(t, o) : t, n = e.length - 1, i; n >= 0; n--)
+  for (var a = s > 1 ? void 0 : s ? E(t, o) : t, n = e.length - 1, i; n >= 0; n--)
     (i = e[n]) && (a = (s ? i(t, o, a) : i(a)) || a);
-  return s && a && E(t, o, a), a;
-}, u = (e, t, o) => t.has(e) || f("Cannot " + o), $ = (e, t, o) => (u(e, t, "read from private field"), o ? o.call(e) : t.get(e)), h = (e, t, o) => t.has(e) ? f("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, o), w = (e, t, o, s) => (u(e, t, "write to private field"), t.set(e, o), o), d = (e, t, o) => (u(e, t, "access private method"), o), c, r, v, _, C;
-let l = class extends x {
+  return s && a && O(t, o, a), a;
+}, u = (e, t, o) => t.has(e) || f("Cannot " + o), $ = (e, t, o) => (u(e, t, "read from private field"), t.get(e)), h = (e, t, o) => t.has(e) ? f("Cannot add the same private member more than once") : t instanceof WeakSet ? t.add(e) : t.set(e, o), w = (e, t, o, s) => (u(e, t, "write to private field"), t.set(e, o), o), d = (e, t, o) => (u(e, t, "access private method"), o), c, r, v, _, C;
+let l = class extends g {
   constructor() {
-    super(), h(this, r), this.content = "", this.selected = "", h(this, c), this.rootItems = [], this.consumeContext(y, (e) => {
-      w(this, c, e), this.observe($(this, c).rootItems, (t) => {
-        var o;
-        this.rootItems = O(t), this.selected = ((o = t[0]) == null ? void 0 : o.id) ?? "";
+    super(), h(this, r), this.content = "", this.selected = "", h(this, c), this.rootItems = [], this.consumeContext(x, (e) => {
+      var t;
+      w(this, c, e), this.observe((t = $(this, c)) == null ? void 0 : t.rootItems, (o) => {
+        var s;
+        o && (this.rootItems = y(o), this.selected = ((s = o[0]) == null ? void 0 : s.id) ?? "");
       });
     });
   }
@@ -88,4 +89,4 @@ export {
   l as MemberCustomModalElement,
   N as default
 };
-//# sourceMappingURL=modal-element-GxYxWSCJ.js.map
+//# sourceMappingURL=modal-element-DfkEIjrp.js.map
