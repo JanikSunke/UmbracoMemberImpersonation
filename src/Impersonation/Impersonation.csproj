@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Product>Umbraco.Community.UmbracoMemberImpersonation</Product>
-    <PackageId>Umbraco.Community.UmbracoMemberImpersonation</PackageId>
+    <Product>Umbraco.Community.MemberImpersonation</Product>
+    <PackageId>Umbraco.Community.MemberImpersonation</PackageId>
     <Title>Umbraco Member Impersonation</Title>
-    <Description>...</Description>
+    <Description>Impersonate members directly from the backoffice</Description>
     <PackageTags>umbraco;umbraco-marketplace</PackageTags>
     <Authors>Janik Sunke</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Janik Sunke</Copyright>

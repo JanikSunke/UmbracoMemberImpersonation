@@ -1,7 +1,7 @@
 # Umbraco Member Impersonation
 
-[![Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.UmbracoMemberImpersonation?color=cc9900)](https://www.nuget.org/packages/Umbraco.Community.UmbracoMemberImpersonation/)
-[![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.UmbracoMemberImpersonation?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.UmbracoMemberImpersonation)
+[![Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.MemberImpersonation?color=cc9900)](https://www.nuget.org/packages/Umbraco.Community.MemberImpersonation/)
+[![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.MemberImpersonation?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.MemberImpersonation)
 [![GitHub license](https://img.shields.io/github/license/JanikSunke/UmbracoMemberImpersonation?color=8AB803)](../LICENSE)
 
 ## Overview
@@ -24,7 +24,7 @@ Umbraco Member Impersonation allows backoffice users to impersonate members dire
 
 Add the package to an existing Umbraco website (v15+) from nuget:
 
-`dotnet add package Umbraco.Community.UmbracoMemberImpersonation`
+`dotnet add package Umbraco.Community.MemberImpersonation`
 
 ## Contributing
 
