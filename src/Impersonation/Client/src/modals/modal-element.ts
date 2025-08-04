@@ -2,8 +2,8 @@ import {customElement, html, state} from "@umbraco-cms/backoffice/external/lit";
 import {UmbModalBaseElement} from "@umbraco-cms/backoffice/modal";
 import {MemberImpersonationModalData, MemberImpersonationModalValue} from "./modal-token";
 import {ROOT_CONTEXT} from "../context/root-context.ts";
-import {DocumentTreeItemResponseModel} from "@umbraco-cms/backoffice/external/backend-api";
 import {UmbChangeEvent} from "@umbraco-cms/backoffice/event";
+import {MapRootDomainsToOptions} from "./modal-helpers.ts";
 
 @customElement('member-custom-modal')
 export class MemberCustomModalElement extends UmbModalBaseElement<MemberImpersonationModalData, MemberImpersonationModalValue> {
@@ -12,14 +12,20 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
   @state()
   selected: string = '';
   #rootContext?: typeof ROOT_CONTEXT.TYPE;
-  private rootItems: DocumentTreeItemResponseModel[] = [];
+  private rootItems: {
+    name: string;
+    value: string;
+    group?: string;
+    selected?: boolean;
+    disabled?: boolean;
+  }[] = [];
 
   constructor() {
     super();
     this.consumeContext(ROOT_CONTEXT, (context) => {
       this.#rootContext = context;
       this.observe(this.#rootContext.rootItems, (items) => {
-        this.rootItems = items;
+        this.rootItems = MapRootDomainsToOptions(items);
         this.selected = items[0]?.id ?? '';
       })
     })
@@ -30,27 +36,17 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
   }
 
   render() {
-    const selectOptions = this.rootItems.map(item => ({name: item.variants[0]?.name, value: item.id, selected: false}));
-
-    if (selectOptions[0] != undefined) {
-      selectOptions[0].selected = true;
-    }
-
     return html`
       <umb-body-layout headline=${this.data?.headline ?? 'Custom dialog'}>
         <uui-box>
           <h3>${this.data?.content}</h3>
-        </uui-box>
-        <uui-box>
           <uui-select
             @change=${this.#selectChange}
             id="select"
             label="Select destination"
-            .options=${selectOptions}
+            .options=${this.rootItems}
           >
           </uui-select>
-        </uui-box>
-        <uui-box>
           <uui-button
             id="submit"
             color='positive'
