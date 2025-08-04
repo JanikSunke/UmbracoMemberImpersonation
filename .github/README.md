@@ -1,18 +1,23 @@
-# Umbraco Member Impersonation 
+# Umbraco Member Impersonation
 
 [![Downloads](https://img.shields.io/nuget/dt/Umbraco.Community.UmbracoMemberImpersonation?color=cc9900)](https://www.nuget.org/packages/Umbraco.Community.UmbracoMemberImpersonation/)
 [![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.UmbracoMemberImpersonation?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.UmbracoMemberImpersonation)
 [![GitHub license](https://img.shields.io/github/license/JanikSunke/UmbracoMemberImpersonation?color=8AB803)](../LICENSE)
 
-TODO: describe your package
+## Overview
+Umbraco Member Impersonation allows backoffice users to impersonate members directly from the Umbraco backoffice. This is a useful feature for administrators who need to perform tasks on behalf of a member who is not logged in.
+- Quickly switch to any member account
+- Easily return to your admin session
 
-<!--
-Including screenshots is a really good idea! 
+<p align="center">
+  <img src="docs/assets/member-impersonation-demo.gif" alt="Video">
+</p>
 
-If you put images into /docs/screenshots, then you would reference them in this readme as, for example:
-
-<img alt="..." src="https://github.com/JanikSunke/UmbracoMemberImpersonation/blob/develop/docs/screenshots/screenshot.png">
--->
+## Features
+- Impersonate any member from the Members section
+- Modal confirmation and destination selection
+- Context-aware actions (only available for authorized users)
+- Built with Umbraco's management APIs
 
 ## Installation
 
@@ -20,12 +25,10 @@ Add the package to an existing Umbraco website (v15+) from nuget:
 
 `dotnet add package Umbraco.Community.UmbracoMemberImpersonation`
 
-TODO *provide any other instructions for someone using your package*
-
 ## Contributing
 
 Contributions to this package are most welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## Acknowledgments
 
-TODO
+Created by [Janik Sunke](https://github.com/JanikSunke).
