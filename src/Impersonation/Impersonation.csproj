@@ -20,6 +20,7 @@
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>1.0.0-beta</PackageVersion>
     <PackageIcon></PackageIcon>
   </PropertyGroup>
 
