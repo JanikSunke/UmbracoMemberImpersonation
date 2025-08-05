@@ -1,5 +1,5 @@
 import { UMB_AUTH_CONTEXT as i } from "@umbraco-cms/backoffice/auth";
-import { c as r } from "./bundle.manifests-JPKfTlA7.js";
+import { c as r } from "./bundle.manifests-DlNR041n.js";
 const m = (n, o) => {
   n.consumeContext(i, async (s) => {
     const e = s == null ? void 0 : s.getOpenApiConfiguration();
@@ -15,4 +15,4 @@ export {
   m as onInit,
   l as onUnload
 };
-//# sourceMappingURL=entrypoint-C6fXpL_s.js.map
+//# sourceMappingURL=entrypoint-DwfsL20Q.js.map

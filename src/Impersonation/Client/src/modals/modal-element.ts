@@ -23,7 +23,7 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
         if (items) {
           const mapped = MapRootDomainsToOptions(items);
           this.rootItems = mapped;
-          this.selected = mapped.find(item => item.selected)?.value ?? '';
+          this.selected = mapped.find(item => item.selected)?.value ?? '/';
         }
       })
     })
@@ -34,29 +34,46 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
   }
 
   render() {
-    return html`
-      <umb-body-layout headline=${this.data?.headline ?? 'Custom dialog'}>
-        <uui-box>
-          <h3>${this.data?.content}</h3>
-          <uui-select
-            @change=${this.#selectChange}
-            id="select"
-            label="Select destination"
-            .options=${this.rootItems}
-          >
-          </uui-select>
-          <uui-button
-            id="submit"
-            color='positive'
-            look="primary"
-            label="Impersonate"
-            @click=${this.#handleConfirm}></uui-button>
-        </uui-box>
-        <div slot="actions">
-          <uui-button id="cancel" label="Cancel" @click="${this.#handleCancel}">Cancel</uui-button>
-        </div>
-      </umb-body-layout>
-    `;
+    console.log(this.rootItems);
+    return this.rootItems.map(x => x.value).find(x => x !== '/') ? html`
+        <umb-body-layout headline=${this.data?.headline ?? 'Custom dialog'}>
+          <uui-box>
+            <h3>${this.data?.content}</h3>
+            <uui-select
+              @change=${this.#selectChange}
+              id="select"
+              label="Select destination"
+              .options=${this.rootItems}
+            >
+            </uui-select>
+            <uui-button
+              id="submit"
+              color='positive'
+              look="primary"
+              label="Impersonate"
+              @click=${this.#handleConfirm}></uui-button>
+          </uui-box>
+          <div slot="actions">
+            <uui-button id="cancel" label="Cancel" @click="${this.#handleCancel}">Cancel</uui-button>
+          </div>
+        </umb-body-layout>
+      ` :
+      html`
+        <umb-body-layout headline=${this.data?.headline ?? 'Custom dialog'}>
+          <uui-box>
+            <h3>${this.data?.content}</h3>
+            <uui-button
+              id="submit"
+              color='positive'
+              look="primary"
+              label="Impersonate"
+              @click=${this.#handleConfirm}></uui-button>
+          </uui-box>
+          <div slot="actions">
+            <uui-button id="cancel" label="Cancel" @click="${this.#handleCancel}">Cancel</uui-button>
+          </div>
+        </umb-body-layout>
+      `;
   }
 
   #selectChange(event: UmbChangeEvent & { target: HTMLSelectElement }) {
