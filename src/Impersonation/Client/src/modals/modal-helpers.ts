@@ -1,7 +1,7 @@
-import {RootDomains} from "../types/types.ts";
+import {RootDomains, UUISelectOption} from "../types/types.ts";
 
-export function MapRootDomainsToOptions(items: RootDomains[]) {
-  const selectOptions = [];
+export function MapRootDomainsToOptions(items: RootDomains[]): UUISelectOption[] {
+  const selectOptions: UUISelectOption[] = [];
   for (const item of items) {
     const documentName = item.variants[0]?.name;
     if (!item.domains?.domains || item.domains.domains.length == 0) {
@@ -12,5 +12,9 @@ export function MapRootDomainsToOptions(items: RootDomains[]) {
       }
     }
   }
+  if (selectOptions[0]) {
+    selectOptions[0].selected = true;
+  }
+
   return selectOptions;
 }

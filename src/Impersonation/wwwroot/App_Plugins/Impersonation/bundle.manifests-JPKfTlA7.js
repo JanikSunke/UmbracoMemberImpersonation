@@ -17,13 +17,13 @@ const F = {
   name: "Impersonation Entrypoint",
   alias: "Impersonation.Entrypoint",
   type: "backofficeEntryPoint",
-  js: () => import("./entrypoint-DW9UzJzu.js")
+  js: () => import("./entrypoint-C6fXpL_s.js")
 }, K = [F], Z = [
   {
     type: "modal",
     alias: "member.impersonation.modal",
     name: "Member custom modal",
-    js: () => import("./modal-element-DfkEIjrp.js")
+    js: () => import("./modal-element-DUWoxTtj.js")
   }
 ], ee = [...Z], te = new J(
   "member.impersonation.modal",
@@ -394,4 +394,4 @@ export {
   g as c,
   De as m
 };
-//# sourceMappingURL=bundle.manifests-idYC-qQB.js.map
+//# sourceMappingURL=bundle.manifests-JPKfTlA7.js.map

@@ -4,6 +4,7 @@ import {MemberImpersonationModalData, MemberImpersonationModalValue} from "./mod
 import {ROOT_CONTEXT} from "../context/root-context.ts";
 import {UmbChangeEvent} from "@umbraco-cms/backoffice/event";
 import {MapRootDomainsToOptions} from "./modal-helpers.ts";
+import {UUISelectOption} from "../types/types.ts";
 
 @customElement('member-custom-modal')
 export class MemberCustomModalElement extends UmbModalBaseElement<MemberImpersonationModalData, MemberImpersonationModalValue> {
@@ -12,13 +13,7 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
   @state()
   selected: string = '';
   #rootContext?: typeof ROOT_CONTEXT.TYPE;
-  private rootItems: {
-    name: string;
-    value: string;
-    group?: string;
-    selected?: boolean;
-    disabled?: boolean;
-  }[] = [];
+  private rootItems: UUISelectOption[] = [];
 
   constructor() {
     super();
@@ -26,8 +21,9 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
       this.#rootContext = context;
       this.observe(this.#rootContext?.rootItems, (items) => {
         if (items) {
-          this.rootItems = MapRootDomainsToOptions(items);
-          this.selected = items[0]?.id ?? '';
+          const mapped = MapRootDomainsToOptions(items);
+          this.rootItems = mapped;
+          this.selected = mapped.find(item => item.selected)?.value ?? '';
         }
       })
     })
