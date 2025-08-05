@@ -12,6 +12,8 @@ jobs:
 
     runs-on: windows-latest
 
+    environment: Nuget
+
     steps:
 
       - name: Checkout repository
