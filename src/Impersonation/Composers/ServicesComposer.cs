@@ -1,3 +1,4 @@
+using Impersonation.Interfaces.Accessors;
 using Impersonation.Interfaces.Services;
 using Impersonation.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,5 +12,6 @@ public class ServicesComposer : IComposer
     public void Compose(IUmbracoBuilder builder)
     {
         builder.Services.AddScoped<IImpersonationMemberSignInManager, ImpersonationMemberSignInManager>();
+        builder.Services.AddScoped<IBackofficeUserAccessor, BackofficeUserAccessor>();
     }
 }

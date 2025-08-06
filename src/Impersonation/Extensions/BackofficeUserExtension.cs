@@ -1,6 +1,4 @@
-using System.Security.Claims;
 using Umbraco.Cms.Core.Models.Membership;
-using Umbraco.Extensions;
 
 namespace Impersonation.Extensions;
 
@@ -11,7 +9,7 @@ public static class BackofficeUserExtension
         return IsLoggedIntoUmbraco(identity) && HasAccessToMemberSection(identity);
     }
 
-    private static bool IsLoggedIntoUmbraco(this IUser user)
+    public static bool IsLoggedIntoUmbraco(this IUser user)
     {
         return user is { IsApproved: true, IsLockedOut: false };
     }

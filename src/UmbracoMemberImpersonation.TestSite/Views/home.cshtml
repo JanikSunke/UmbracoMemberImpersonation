@@ -1,10 +1,12 @@
 ﻿@using Umbraco.Cms.Core.Security
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits UmbracoViewPage
 @inject IMemberManager MemberManager
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
     var member = await MemberManager.GetCurrentMemberAsync();
 }
+
+@Html.Partial("Umbraco.Community.MemberImpersonation/_ImpersonationLayout")
 
 @if (member == null)
 {

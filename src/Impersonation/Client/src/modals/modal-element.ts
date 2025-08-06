@@ -34,7 +34,6 @@ export class MemberCustomModalElement extends UmbModalBaseElement<MemberImperson
   }
 
   render() {
-    console.log(this.rootItems);
     return this.rootItems.map(x => x.value).find(x => x !== '/') ? html`
         <umb-body-layout headline=${this.data?.headline ?? 'Custom dialog'}>
           <uui-box>

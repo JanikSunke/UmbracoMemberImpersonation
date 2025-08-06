@@ -30,6 +30,10 @@
     <PackageReference Include="Umbraco.Cms.Api.Management" Version="*"/>
   </ItemGroup>
 
+  <PropertyGroup>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
   <ItemGroup>
     <!-- Dont include the client folder as part of packaging nuget build -->
     <Content Remove="Client\**"/>

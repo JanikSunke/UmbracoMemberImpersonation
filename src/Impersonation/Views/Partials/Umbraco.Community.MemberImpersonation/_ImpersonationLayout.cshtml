@@ -1,0 +1,13 @@
+@using Impersonation.Interfaces.Accessors
+@inject IBackofficeUserAccessor BackOfficeSecurity
+
+@{
+    if (BackOfficeSecurity.BackofficeUser == null)
+    {
+        return;
+    }
+}
+
+<div>
+    @BackOfficeSecurity.BackofficeUser.Name
+</div>
