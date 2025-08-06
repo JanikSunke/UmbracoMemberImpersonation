@@ -1,17 +1,36 @@
 @using Impersonation.Interfaces.Accessors
+@using Umbraco.Cms.Core.Security
 @using Umbraco.Cms.Web.Common
+@using Umbraco.Extensions
 @inject IBackofficeUserAccessor BackOfficeSecurity
 @inject UmbracoHelper UmbracoHelper
+@inject IMemberManager MemberManager
 
 @{
     if (BackOfficeSecurity.BackofficeUser == null)
     {
         return;
     }
+
+    if (await MemberManager.GetCurrentMemberAsync() is not { } member)
+    {
+        return;
+    }
+
+    var dictionaryValue = UmbracoHelper.GetDictionaryValueOrDefault("impersonatingHeader", "{0} is currently impersonating {1}");
+    var impersonatingText = dictionaryValue.InvariantFormat([BackOfficeSecurity.BackofficeUser.Name, member.Name]);
+}
+
+@if (Model is not false)
+{
+    <span>
+        @impersonatingText
+    </span>
+    return;
 }
 
 <div class="umb-member-impersonation">
-    @(UmbracoHelper.GetDictionaryValueOrDefault("impersonatingHeader", "You are currently impersonating") + " " + BackOfficeSecurity.BackofficeUser.Name)
+    @impersonatingText
 </div>
 
 

@@ -20,15 +20,10 @@ Also, consider making a custom ViewPage for "master controller logic", like gett
             margin: 0;
             padding: 0;
         }
-        /*
-        .umb-member-impersonation {
-            width: fit-content !important;
-        }
-        */
     </style>
 </head>
 <body>
-@Html.Partial("Umbraco.Community.MemberImpersonation/_ImpersonationLayout")
+@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/_ImpersonationLayout", false)
 @Html.AntiForgeryToken()
 <content>
     @RenderBody()
