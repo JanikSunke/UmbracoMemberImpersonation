@@ -1,5 +1,7 @@
 @using Impersonation.Interfaces.Accessors
+@using Umbraco.Cms.Web.Common
 @inject IBackofficeUserAccessor BackOfficeSecurity
+@inject UmbracoHelper UmbracoHelper
 
 @{
     if (BackOfficeSecurity.BackofficeUser == null)
@@ -8,6 +10,16 @@
     }
 }
 
-<div>
-    @BackOfficeSecurity.BackofficeUser.Name
+<div class="umb-member-impersonation">
+    @(UmbracoHelper.GetDictionaryValueOrDefault("impersonatingHeader", "You are currently impersonating") + " " + BackOfficeSecurity.BackofficeUser.Name)
 </div>
+
+
+<style>
+    .umb-member-impersonation {
+        width: 100%;
+        background-color: #f3f3f5;
+        padding: 12px;
+        text-align: center;
+    }
+</style>

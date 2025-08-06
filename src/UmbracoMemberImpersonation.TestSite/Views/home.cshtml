@@ -6,8 +6,6 @@
     var member = await MemberManager.GetCurrentMemberAsync();
 }
 
-@Html.Partial("Umbraco.Community.MemberImpersonation/_ImpersonationLayout")
-
 @if (member == null)
 {
     <p>Not Authenticated</p>

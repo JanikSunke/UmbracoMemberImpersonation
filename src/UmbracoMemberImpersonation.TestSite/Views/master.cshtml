@@ -13,13 +13,25 @@ Also, consider making a custom ViewPage for "master controller logic", like gett
 }
 <!doctype html>
 <html lang="@site.GetCultureFromDomains()">
-    <head>
-        <title>Home</title>
-    </head>
-    <body>
-        @Html.AntiForgeryToken()
-        <content>
-            @RenderBody()
-        </content>
-    </body>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /*
+        .umb-member-impersonation {
+            width: fit-content !important;
+        }
+        */
+    </style>
+</head>
+<body>
+@Html.Partial("Umbraco.Community.MemberImpersonation/_ImpersonationLayout")
+@Html.AntiForgeryToken()
+<content>
+    @RenderBody()
+</content>
+</body>
 </html>
