@@ -26,19 +26,24 @@ is a useful feature for administrators who need to perform tasks on behalf of a 
 - Logout member when logging out of the backoffice
 
 ## UI Element
-To clearly indicate when you are impersonating a member, you can display a built-in notification by rendering the provided HTML partial.
+
+To clearly indicate when you are impersonating a member, you can display a built-in notification by rendering the
+provided HTML partial.
 Insert the following code in the <\body> tag:
 
 ```
-@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/_ImpersonationLayout")
+@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationText")
 ```
 
-Which will render the text '{0} is currently impersonating {1}' inside a span as default. This text can be customized in the dictionary item 'impersonatingHeader'.
+Which will render the text '{0} is currently impersonating {1}' inside a span as default. This text can be customized in
+the dictionary item 'impersonatingHeader'.
 
 If you want to use the default layout, you can set the model to false:
+
 ```
-@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/_ImpersonationLayout", false)
+@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/_ImpersonationText", false)
 ```
+
 <p align="center">
   <img src="/docs/assets/impersonation-text.png" alt="Video">
 </p>
