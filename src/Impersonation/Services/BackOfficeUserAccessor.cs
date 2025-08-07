@@ -43,8 +43,8 @@ public class BackofficeUserAccessor : IBackofficeUserAccessor
                 return new ClaimsIdentity();
             }
 
-            var unprotected = cookieOptions.TicketDataFormat.Unprotect(backOfficeCookie!);
-            var backOfficeIdentity = unprotected!.Principal.GetUmbracoIdentity();
+            var unprotected = cookieOptions.TicketDataFormat.Unprotect(backOfficeCookie);
+            var backOfficeIdentity = unprotected?.Principal.GetUmbracoIdentity();
 
             return backOfficeIdentity;
         }
