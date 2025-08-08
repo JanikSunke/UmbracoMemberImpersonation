@@ -23,10 +23,11 @@ Also, consider making a custom ViewPage for "master controller logic", like gett
     </style>
 </head>
 <body>
-@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationText", false)
-@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationToggle")
+
 @Html.AntiForgeryToken()
 <content>
+    @await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationText")
+    @await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationToggle")
     @RenderBody()
 </content>
 </body>

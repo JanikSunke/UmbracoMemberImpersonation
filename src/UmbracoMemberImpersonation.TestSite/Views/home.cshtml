@@ -3,14 +3,31 @@
 @inject IMemberManager MemberManager
 @{
     Layout = "master.cshtml";
-    var member = await MemberManager.GetCurrentMemberAsync();
 }
 
-@if (member == null)
-{
-    <p>Not Authenticated</p>
-}
-else
-{
-    <p>Authenticated with @member.Name</p>
-}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container {
+        margin: auto 20px auto auto;
+        max-width: 800px;
+    }
+</style>
+
+<div class="container">
+    <h1>Welcome to HTML Page</h1>
+    <p>This HTML content includes more advanced features:</p>
+    <ul>
+        <li>Structured layout with CSS styling</li>
+        <li>Flexbox for centering content</li>
+        <li>Box shadow and border radius for design</li>
+        <li>List of items</li>
+        <li>Responsive design using viewport units</li>
+    </ul>
+</div>
