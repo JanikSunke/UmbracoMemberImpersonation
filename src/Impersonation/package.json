@@ -1,0 +1,21 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "run-p build:js",
+    "watch": "run-p watch:js",
+    "build:js": "cross-env NODE_ENV=production && esbuild ./Lit/impersonation.main.js --bundle --minify --sourcemap --target=es2020 --outdir=./wwwroot/scripts",
+    "watch:js": "esbuild ./Lit/impersonation.main.js --bundle --minify --sourcemap --target=es2020 --outdir=./wwwroot/scripts --watch"
+  },
+  "author": "ecreo",
+  "devDependencies": {
+    "@umbraco-ui/uui": "^1.14.2",
+    "@umbraco-ui/uui-css": "^1.14.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.23.0",
+    "lit": "^3.3.1",
+    "npm-run-all": "^4.1.5"
+  }
+}

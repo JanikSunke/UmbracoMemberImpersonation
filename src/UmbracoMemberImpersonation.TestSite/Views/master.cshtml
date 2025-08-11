@@ -21,14 +21,15 @@ Also, consider making a custom ViewPage for "master controller logic", like gett
             padding: 0;
         }
     </style>
+    <script src="~/scripts/impersonation.main.js" defer asp-append-version="true"></script>
 </head>
 <body>
 
 @Html.AntiForgeryToken()
 <content>
     @await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationText")
-    @await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationToggle")
     @RenderBody()
 </content>
+@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationUI")
 </body>
 </html>

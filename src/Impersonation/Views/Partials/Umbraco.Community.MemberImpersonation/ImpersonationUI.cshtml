@@ -1,0 +1,19 @@
+@using Impersonation.Interfaces.Accessors
+@using Umbraco.Cms.Core.Security
+@inject IBackofficeUserAccessor BackOfficeSecurity
+@inject IMemberManager MemberManager
+
+
+@{
+    var member = await MemberManager.GetCurrentMemberAsync();
+    var impersonating = BackOfficeSecurity.BackofficeUser != null && member != null;
+}
+
+@if (impersonating)
+{
+    <umb-act-toggle></umb-act-toggle>
+}
+else
+{
+    <umb-act-not-toggle></umb-act-not-toggle>
+}
