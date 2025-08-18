@@ -1,6 +1,7 @@
 import {css, html, LitElement, nothing} from "lit";
 import {customElement, property} from "lit/decorators.js";
-import {UmbSearchResultItemModel} from "./types";
+import {UmbSearchResultItemModel, UserAuthToken} from "./types";
+import {ImpersonationService} from "../Client/src/api";
 
 @customElement('umb-act-member-item-actions')
 export class UmbActMemberItemActions extends LitElement {
@@ -11,6 +12,7 @@ export class UmbActMemberItemActions extends LitElement {
         text-decoration: none;
         outline-offset: -3px;
         display: flex;
+        cursor: pointer;
       }
 
       .search-item:hover {
@@ -31,15 +33,38 @@ export class UmbActMemberItemActions extends LitElement {
       }
     `,
   ];
+
   @property({type: Object})
   item?: UmbSearchResultItemModel;
+
+  userAuth: UserAuthToken;
+
+  constructor() {
+    super();
+    this.userAuth = JSON.parse(localStorage.getItem('umb:userAuthTokenResponse'));
+  }
+
+  async impersonate() {
+    ImpersonationService.impersonate({
+      path: {
+        memberKey: encodeURIComponent(this.item.id)
+      },
+      headers: {
+        Authorization: `Bearer ${this.userAuth.access_token}`
+      }
+    }).then(({response}) => {
+      if (response.ok) {
+        window.location.reload();
+      }
+    });
+  }
 
   override render() {
     if (!this.item) return nothing;
     return html`
       <a
         class="search-item"
-        href=${this.item.href}>
+        @click="${this.impersonate}">
         <slot></slot>
       </a>
     `;

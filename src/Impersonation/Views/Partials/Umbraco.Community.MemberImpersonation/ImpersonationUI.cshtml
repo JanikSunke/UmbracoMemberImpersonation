@@ -6,10 +6,13 @@
 
 @{
     var member = await MemberManager.GetCurrentMemberAsync();
-    var impersonating = BackOfficeSecurity.BackofficeUser != null && member != null;
+    if (BackOfficeSecurity.BackofficeUser == null)
+    {
+        return;
+    }
 }
 
-@if (impersonating)
+@if (member != null)
 {
     <umb-act-toggle></umb-act-toggle>
 }

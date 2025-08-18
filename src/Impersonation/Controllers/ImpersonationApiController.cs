@@ -14,7 +14,7 @@ public class ImpersonationApiController : ImpersonationApiControllerBase
     public ImpersonationApiController(IImpersonationMemberSignInManager impersonationMemberSignInManager) =>
         _impersonationMemberSignInManager = impersonationMemberSignInManager;
 
-    [HttpGet("impersonate/{memberKey}")]
+    [HttpPost("impersonate/{memberKey}")]
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
     public async Task<ActionResult> Impersonate(string memberKey)
     {

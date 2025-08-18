@@ -30,11 +30,9 @@ export class UmbActSearchResultItem extends LitElement {
     if (!this.item) return nothing;
     return html`
       <uui-icon-registry-essential>
-        ${this.item.icon ? html`
-          <uui-icon name=${this.item.icon}></uui-icon>` : html`
-          <uui-icon name="see"></uui-icon>`}
+        <uui-icon name="see"></uui-icon>
       </uui-icon-registry-essential>
-      <span>${this.item.name}</span>
+      <span>${this.item.variants.find(x => x.name)?.name}</span>
       <div class="extra"></div>
     `;
   }
