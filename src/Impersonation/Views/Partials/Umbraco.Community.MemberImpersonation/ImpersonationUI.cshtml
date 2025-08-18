@@ -6,7 +6,7 @@
 
 @{
     var member = await MemberManager.GetCurrentMemberAsync();
-    if (BackOfficeSecurity.BackofficeUser == null)
+    if (BackOfficeSecurity.BackofficeUser?.IsAuthenticated == false)
     {
         return;
     }

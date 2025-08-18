@@ -121,43 +121,6 @@ export class UmbActModal extends UUIModalElement {
       console.error('There was a problem with the fetch operation:', await response.text());
     } else {
       const data = await response.json();
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-      data.items.push(data.items[0]);
-
       this.items = data.items;
       this.requestUpdate('items');
     }
