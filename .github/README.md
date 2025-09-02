@@ -27,6 +27,20 @@ is a useful feature for administrators who need to perform tasks on behalf of a 
 
 ## UI Element
 
+Add full functionality to your frontend by rendering the provided Lit partial using Umbraco's Ui Library. It has search
+functionality, quick switching between different members.
+Insert the following code in the <\body> tag:
+
+```
+@await Html.PartialAsync("Umbraco.Community.MemberImpersonation/ImpersonationUI")
+```
+
+<p align="center">
+  <img src="/docs/assets/impersonation-ui.gif" alt="Video">
+</p>
+
+## Text Element
+
 To clearly indicate when you are impersonating a member, you can display a built-in notification by rendering the
 provided HTML partial.
 Insert the following code in the <\body> tag:
