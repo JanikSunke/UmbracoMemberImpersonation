@@ -3,7 +3,7 @@ import {UmbEntityActionArgs, UmbEntityActionBase} from "@umbraco-cms/backoffice/
 import {UMB_MODAL_MANAGER_CONTEXT, UmbModalManagerContext} from "@umbraco-cms/backoffice/modal";
 import {UmbMemberDetailRepository} from '@umbraco-cms/backoffice/member';
 import {MEMBER_IMPERSONATION_MODAL} from "../modals/modal-token.ts";
-import {ImpersonationService} from "../api";
+import {ImpersonationService} from "../impersonation-api";
 
 export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailRepository> {
   #modalManagerContext?: UmbModalManagerContext;
@@ -24,7 +24,7 @@ export class ImpersonateMember extends UmbEntityActionBase<UmbMemberDetailReposi
     });
 
     await modal?.onSubmit().then(async (data) => {
-      return ImpersonationService.impersonate({
+      return ImpersonationService.impersonation({
         path: {memberKey: this.args.unique?.toString() ?? ''}
       }).then(({response}) => {
         if (response.ok) {

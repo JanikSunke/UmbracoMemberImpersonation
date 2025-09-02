@@ -9,8 +9,8 @@ namespace Impersonation.Services;
 public class ImpersonationMemberSignInManager : IImpersonationMemberSignInManager
 {
     private readonly IBackOfficeSecurityAccessor _backOfficeSecurityAccessor;
-    private readonly IMemberSignInManager _memberSignInManager;
     private readonly IMemberManager _memberManager;
+    private readonly IMemberSignInManager _memberSignInManager;
 
     public ImpersonationMemberSignInManager(IMemberSignInManager memberSignInManager,
         IBackOfficeSecurityAccessor backOfficeSecurityAccessor, IMemberManager memberManager)
@@ -35,6 +35,17 @@ public class ImpersonationMemberSignInManager : IImpersonationMemberSignInManage
         }
 
         await _memberSignInManager.SignInAsync(user, false);
+        return SignInResult.Success;
+    }
+
+    public async Task<SignInResult> SignOutAsync()
+    {
+        if (_backOfficeSecurityAccessor.BackOfficeSecurity?.CurrentUser?.IsAllowedToImpersonate() != true)
+        {
+            return SignInResult.Failed;
+        }
+
+        await _memberSignInManager.SignOutAsync();
         return SignInResult.Success;
     }
 }

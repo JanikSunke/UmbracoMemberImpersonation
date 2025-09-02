@@ -1,7 +1,8 @@
 import {css, html, LitElement, nothing} from "lit";
 import {customElement, property} from "lit/decorators.js";
-import {UmbSearchResultItemModel, UserAuthToken} from "./types";
-import {ImpersonationService} from "../Client/src/api";
+import {UserAuthToken} from "./types";
+import {ImpersonationService} from "../Client/src/impersonation-api";
+import {MemberItemResponseModel} from "../Client/src/management-api";
 
 @customElement('umb-act-member-item-actions')
 export class UmbActMemberItemActions extends LitElement {
@@ -35,7 +36,7 @@ export class UmbActMemberItemActions extends LitElement {
   ];
 
   @property({type: Object})
-  item?: UmbSearchResultItemModel;
+  item?: MemberItemResponseModel;
 
   userAuth: UserAuthToken;
 
@@ -45,7 +46,7 @@ export class UmbActMemberItemActions extends LitElement {
   }
 
   async impersonate() {
-    ImpersonationService.impersonate({
+    ImpersonationService.impersonation({
       path: {
         memberKey: encodeURIComponent(this.item.id)
       },

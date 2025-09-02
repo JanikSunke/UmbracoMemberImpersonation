@@ -1,18 +1,3 @@
-export type UmbSearchResultItemModel = {
-  id: string;
-  kind: string;
-  memberType: {
-    collection: string;
-    icon: string;
-    id: string;
-  }
-  variants: {
-    name: string;
-    culture: string;
-  }[]
-};
-
-
 export type UserAuthToken = {
   access_token: string,
   expires_in: string,
@@ -20,4 +5,10 @@ export type UserAuthToken = {
   refresh_token: string,
   scope: string,
   token_type: string
+}
+
+export enum MemberOrderByModel {
+  USERNAME = 'Username',
+  NAME = 'Name',
+  EMAIL = 'Email',
 }

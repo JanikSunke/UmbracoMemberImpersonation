@@ -5,4 +5,5 @@ namespace Impersonation.Interfaces.Services;
 public interface IImpersonationMemberSignInManager
 {
     Task<SignInResult> SignInAsync(string userName);
+    Task<SignInResult> SignOutAsync();
 }

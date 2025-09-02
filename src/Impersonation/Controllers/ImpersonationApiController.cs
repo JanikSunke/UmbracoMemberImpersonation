@@ -14,11 +14,25 @@ public class ImpersonationApiController : ImpersonationApiControllerBase
     public ImpersonationApiController(IImpersonationMemberSignInManager impersonationMemberSignInManager) =>
         _impersonationMemberSignInManager = impersonationMemberSignInManager;
 
-    [HttpPost("impersonate/{memberKey}")]
+    [HttpPost("Impersonation/{memberKey}")]
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
-    public async Task<ActionResult> Impersonate(string memberKey)
+    public async Task<ActionResult> Impersonation(string memberKey)
     {
         var result = await _impersonationMemberSignInManager.SignInAsync(memberKey);
+
+        if (result.Succeeded)
+        {
+            return Ok("Successfully impersonated");
+        }
+
+        return BadRequest("Failed to impersonate");
+    }
+
+    [HttpPost("StopImpersonation")]
+    [ProducesResponseType<string>(StatusCodes.Status204NoContent)]
+    public async Task<ActionResult> StopImpersonation()
+    {
+        var result = await _impersonationMemberSignInManager.SignOutAsync();
 
         if (result.Succeeded)
         {

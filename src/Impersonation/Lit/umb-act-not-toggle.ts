@@ -6,7 +6,7 @@ import {UmbActModal} from "./umb-act-modal";
 @customElement('umb-act-not-toggle')
 export class UmbActNotToggle extends LitElement {
   static styles = css`
-    .umb-act-bar {
+    :host {
       position: absolute;
       bottom: 1.00rem;
       left: 1.00rem;
@@ -28,7 +28,7 @@ export class UmbActNotToggle extends LitElement {
 
   render() {
     return html`
-      <uui-action-bar class="umb-act-bar">
+      <uui-action-bar>
         <uui-button @click=${this.handleClick} label="impersonate" pristine="" look="primary">
           <svg width="24px" viewBox="0 0 512 512">
             <path fill="currentColor"

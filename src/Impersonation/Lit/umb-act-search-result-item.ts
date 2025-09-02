@@ -1,6 +1,6 @@
 import {css, html, LitElement, nothing} from "lit";
 import {customElement, property} from "lit/decorators.js";
-import {UmbSearchResultItemModel} from "./types";
+import {MemberItemResponseModel} from "../Client/src/management-api";
 
 @customElement('umb-act-search-result-item')
 export class UmbActSearchResultItem extends LitElement {
@@ -12,6 +12,7 @@ export class UmbActSearchResultItem extends LitElement {
         padding: var(--uui-size-space-3) var(--uui-size-space-5);
 
         display: flex;
+        justify-content: space-between;
         gap: var(--uui-size-space-3);
         align-items: center;
 
@@ -24,7 +25,7 @@ export class UmbActSearchResultItem extends LitElement {
     `,
   ];
   @property({type: Object})
-  item?: UmbSearchResultItemModel;
+  item?: MemberItemResponseModel;
 
   override render() {
     if (!this.item) return nothing;
@@ -33,7 +34,6 @@ export class UmbActSearchResultItem extends LitElement {
         <uui-icon name="see"></uui-icon>
       </uui-icon-registry-essential>
       <span>${this.item.variants.find(x => x.name)?.name}</span>
-      <div class="extra"></div>
     `;
   }
 }
